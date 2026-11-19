@@ -67,7 +67,11 @@ export function ActionBarButton({
                 aria-pressed={ariaPressed}
                 aria-expanded={ariaExpanded}
                 disabled={disabled}
-                onClick={(event) => onActivate?.(event.currentTarget)}
+                onClick={(event) => {
+                    // Don't let the click also activate the surrounding tile (e.g. opening the thread from the threads list)
+                    event.stopPropagation();
+                    onActivate?.(event.currentTarget);
+                }}
                 onContextMenu={handleContextMenu}
                 onFocus={disabled ? undefined : onFocus}
                 className={styles.toolbar_item}

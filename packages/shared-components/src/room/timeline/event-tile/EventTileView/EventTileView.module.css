@@ -125,6 +125,11 @@
     text-align: start;
 }
 
+/* The edit composer shows its autocomplete above itself, so it must not be clipped. */
+.slotBody > :global(.mx_EditMessageComposer) {
+    overflow-y: visible;
+}
+
 .slotAvatar {
     cursor: pointer;
     user-select: none;

@@ -41,6 +41,13 @@
     display: flex;
 }
 
+/* Let the body shrink to the available width (instead of its max-content width)
+   so that wide content such as code blocks scrolls inside the body rather than
+   pushing the rest of the text out of view next to the (edited) marker. */
+.annotated > :first-child {
+    min-width: 0;
+}
+
 .annotatedInline {
     display: inline-flex;
 }
